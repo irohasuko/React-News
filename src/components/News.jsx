@@ -1,5 +1,10 @@
 import Card from './Card';
 import styled from 'styled-components';
+import axios from 'axios';
+
+const url = process.env.REACT_APP_NewsURL + process.env.REACT_APP_NewsKey;
+
+const apiData = axios.get(url).then(res => console.log(res));
 
 const NewsBox = styled.div`
     text-align: center;
