@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+import Loading from './Loading';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -30,7 +31,7 @@ const News = ({ category, isLoading, setIsLoading }) => {
             <h2>ニュース一覧</h2>
             {
                 isLoading ?
-                    'Loading'
+                    <Loading />
                     :
                     <CardContainer>
                         {news.map(newsData => (
