@@ -16,12 +16,13 @@ const CardContainer = styled.div`
 
 const News = ({ category }) => {
     const url = process.env.REACT_APP_NewsURL + category + '.json?api-key=' + process.env.REACT_APP_NewsKey;
+    console.log(url);
     const [news, setNews] = useState([]);
     useEffect(() => {
         axios.get(url).then((res) => {
             setNews(res.data.results);
         });
-    }, []);
+    }, [url]);
 
     return (
         <NewsBox>
