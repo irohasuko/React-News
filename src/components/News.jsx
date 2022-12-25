@@ -6,6 +6,8 @@ import axios from 'axios';
 
 const NewsBox = styled.div`
     text-align: center;
+    padding-top: 20px;
+    margin: 5%;
     border: solid 1px;
 `
 
