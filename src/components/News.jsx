@@ -14,7 +14,7 @@ const CardContainer = styled.div`
     justify-content: center;
 `
 
-const News = ({ category, setIsLoading }) => {
+const News = ({ category, isLoading, setIsLoading }) => {
     const url = process.env.REACT_APP_NewsURL + category + '.json?api-key=' + process.env.REACT_APP_NewsKey;
     const [news, setNews] = useState([]);
     useEffect(() => {
@@ -28,11 +28,16 @@ const News = ({ category, setIsLoading }) => {
     return (
         <NewsBox>
             <h2>ニュース一覧</h2>
-            <CardContainer>
-                {news.map(newsData => (
-                    <Card key={newsData.uri} news={newsData} />
-                ))}
-            </CardContainer>
+            {
+                isLoading ?
+                    'Loading'
+                    :
+                    <CardContainer>
+                        {news.map(newsData => (
+                            <Card key={newsData.uri} news={newsData} />
+                        ))}
+                    </CardContainer>
+            }
         </NewsBox>
     );
 };

@@ -10,10 +10,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="App">
-      {isLoading ? 'Loading' : ''}
       <Header />
       <Category setCategory={setCategory}/>
-      <News category={category} setIsLoading={setIsLoading}/>
+      <News category={category} isLoading={isLoading} setIsLoading={setIsLoading}/>
     </div>
   );
 }
