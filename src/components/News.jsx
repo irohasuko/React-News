@@ -1,10 +1,9 @@
+import { useState, useEffect } from 'react';
 import Card from './Card';
 import styled from 'styled-components';
 import axios from 'axios';
 
 const url = process.env.REACT_APP_NewsURL + process.env.REACT_APP_NewsKey;
-
-const apiData = axios.get(url).then(res => console.log(res));
 
 const NewsBox = styled.div`
     text-align: center;
@@ -18,15 +17,20 @@ const CardContainer = styled.div`
 `
 
 const News = () => {
+    const [news, setNews] = useState([]);
+    useEffect(() => {
+        axios.get(url).then((res) => {
+            setNews(res.data.results);
+        });
+    }, []);
+
     return (
         <NewsBox>
             <h2>ニュース一覧</h2>
             <CardContainer>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {news.map(newsData => (
+                    <Card key={newsData.id} news={newsData} />
+                ))}
             </CardContainer>
         </NewsBox>
     );
