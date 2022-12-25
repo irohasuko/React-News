@@ -33,15 +33,43 @@ const StyledButton = styled.button`
 `
 
 const Category = () => {
+    const SECTIONS = [
+        "home",
+        "arts",
+        "automobiles",
+        "books",
+        "business",
+        "fashion",
+        "food",
+        "health",
+        "insider",
+        "magazine",
+        "movies",
+        "national",
+        "nyregion",
+        "obituaries",
+        "opinion",
+        "politics",
+        "realestate",
+        "science",
+        "sports",
+        "sundayreview",
+        "technology",
+        "theater",
+        "tmagazine",
+        "travel",
+        "upshot",
+        "world",
+    ];
+
     return (
         <Categorybox>
             <div>カテゴリでフィルター</div>
             <Selector>
                 <option default>カテゴリを選択</option>
-                <option>テスト１</option>
-                <option>テスト２</option>
-                <option>テスト３</option>
-                <option>テスト４</option>
+                {SECTIONS.map(section => (
+                    <option key={section}>{section}</option>
+                ))}
             </Selector>
             <StyledButton>検索</StyledButton>
         </Categorybox>
