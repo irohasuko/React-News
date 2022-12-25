@@ -11,7 +11,8 @@ const Categorybox = styled.div`
 
 const Selector = styled.select`
     display: inline-block;
-    width: 60%;
+    width: 80%;
+    text-align: center;
     font-size: 18px;
     background-color: lightgray;
     border-radius: 10px;
@@ -19,31 +20,48 @@ const Selector = styled.select`
     vertical-align: middle;
 `
 
-const StyledButton = styled.button`
-    display: inline-block;
-    width: 20%;
-    background-color: blue;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    vertical-align: middle;
-    padding: 5px;
-    margin: 5px;
-    cursor: pointer;
-`
+const Category = ({ setCategory }) => {
+    const SECTIONS = [
+        "home",
+        "arts",
+        "automobiles",
+        "books",
+        "business",
+        "fashion",
+        "food",
+        "health",
+        "insider",
+        "magazine",
+        "movies",
+        "national",
+        "nyregion",
+        "obituaries",
+        "opinion",
+        "politics",
+        "realestate",
+        "science",
+        "sports",
+        "sundayreview",
+        "technology",
+        "theater",
+        "tmagazine",
+        "travel",
+        "upshot",
+        "world",
+    ];
 
-const Category = () => {
+    const handleChange = (e) => {
+        setCategory(e.target.value);
+    }
+
     return (
         <Categorybox>
             <div>カテゴリでフィルター</div>
-            <Selector>
-                <option default>カテゴリを選択</option>
-                <option>テスト１</option>
-                <option>テスト２</option>
-                <option>テスト３</option>
-                <option>テスト４</option>
+            <Selector onChange={handleChange}>
+                {SECTIONS.map(section => (
+                    <option key={section} value={section}>{section}</option>
+                ))}
             </Selector>
-            <StyledButton>検索</StyledButton>
         </Categorybox>
     );
 };
