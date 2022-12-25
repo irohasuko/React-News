@@ -62,16 +62,19 @@ const Category = () => {
         "world",
     ];
 
+    const searchCategory = () => {
+        console.log("ボタンがクリックされました");
+    }
+
     return (
         <Categorybox>
             <div>カテゴリでフィルター</div>
             <Selector>
-                <option default>カテゴリを選択</option>
                 {SECTIONS.map(section => (
                     <option key={section}>{section}</option>
                 ))}
             </Selector>
-            <StyledButton>検索</StyledButton>
+            <StyledButton onClick={searchCategory}>検索</StyledButton>
         </Categorybox>
     );
 };
