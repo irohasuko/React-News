@@ -14,12 +14,14 @@ const CardContainer = styled.div`
     justify-content: center;
 `
 
-const News = ({ category }) => {
+const News = ({ category, setIsLoading }) => {
     const url = process.env.REACT_APP_NewsURL + category + '.json?api-key=' + process.env.REACT_APP_NewsKey;
     const [news, setNews] = useState([]);
     useEffect(() => {
+        setIsLoading(true);
         axios.get(url).then((res) => {
             setNews(res.data.results);
+            setIsLoading(false);
         });
     }, [url]);
 
