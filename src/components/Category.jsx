@@ -13,7 +13,7 @@ const Selector = styled.select`
     display: inline-block;
     width: 80%;
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     background-color: lightgray;
     border-radius: 10px;
     margin-right: 10px;
