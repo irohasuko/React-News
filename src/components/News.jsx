@@ -16,7 +16,6 @@ const CardContainer = styled.div`
 
 const News = ({ category }) => {
     const url = process.env.REACT_APP_NewsURL + category + '.json?api-key=' + process.env.REACT_APP_NewsKey;
-    console.log(url);
     const [news, setNews] = useState([]);
     useEffect(() => {
         axios.get(url).then((res) => {
@@ -29,7 +28,7 @@ const News = ({ category }) => {
             <h2>ニュース一覧</h2>
             <CardContainer>
                 {news.map(newsData => (
-                    <Card key={newsData.id} news={newsData} />
+                    <Card key={newsData.uri} news={newsData} />
                 ))}
             </CardContainer>
         </NewsBox>

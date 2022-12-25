@@ -27,8 +27,7 @@ const StyledCard = styled.a`
 `
 
 const Card = ({ news }) => {
-    console.log(news);
-    const imgUrl = '0' in news.multimedia ? news.multimedia[0].url : `${process.env.PUBLIC_URL}/logo192.png`;
+    const imgUrl = news.multimedia ? news.multimedia[0].url : `${process.env.PUBLIC_URL}/logo192.png`;
     return (
         <StyledCard href={news.url}>
             <CardHeader>{news.title}</CardHeader>
