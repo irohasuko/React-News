@@ -3,8 +3,6 @@ import Card from './Card';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const url = process.env.REACT_APP_NewsURL + process.env.REACT_APP_NewsKey;
-
 const NewsBox = styled.div`
     text-align: center;
     border: solid 1px;
@@ -16,7 +14,8 @@ const CardContainer = styled.div`
     justify-content: center;
 `
 
-const News = () => {
+const News = ({ category }) => {
+    const url = process.env.REACT_APP_NewsURL + category + '.json?api-key=' + process.env.REACT_APP_NewsKey;
     const [news, setNews] = useState([]);
     useEffect(() => {
         axios.get(url).then((res) => {
