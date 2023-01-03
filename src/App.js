@@ -7,11 +7,12 @@ import News from './components/News';
 
 function App() {
   const [category, setCategory] = useState('home');
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="App">
       <Header />
       <Category setCategory={setCategory}/>
-      <News category={category}/>
+      <News category={category} isLoading={isLoading} setIsLoading={setIsLoading}/>
     </div>
   );
 }

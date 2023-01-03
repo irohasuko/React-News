@@ -19,11 +19,16 @@ const CardBody = styled.div`
 `
 
 const StyledCard = styled.a`
-    width: 30%;
     margin: 5px;
     text-decoration: none;
     color: black;
     border: none;
+    width: 90%;
+    @media screen and (min-width: 600px) {
+        width: 30%
+    } @media screen and (min-width: 900px) {
+        width: 20%
+    }
 `
 
 const Card = ({ news }) => {
